@@ -1,0 +1,1 @@
+(localStorage.getItem('user') === 'juan') && (location.href = '/login')

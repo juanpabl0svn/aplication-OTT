@@ -1,0 +1,47 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+header a{
+  text-decoration: none;
+  padding: 7px;
+  background-color:#5ebbe0;
+
+}
+
+main{
+  background: #5ebbe0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+article{
+  background: blue;
+  position: relative;
+  bottom: -10px;
+  height: clamp(200px,20vh,300px);
+  width: clamp(300px,25vw,400px);
+}
+
+main article:nth-child(2n){
+  top: -60px;
+}
+
+.title{
+  display: grid;
+  place-content: center;
+}
+
+
+

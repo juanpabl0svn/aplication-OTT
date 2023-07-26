@@ -1,19 +1,22 @@
 const { Router } = require("express");
-const path = require("path");
+const {join} = require("path");
+
+const path = (html) => join(__dirname,'..','pages',html)
 
 const router = Router();
 
-// router.use((req,res,next) => {
-//   let usuario = 'vanegas'
-//   if (usuario === 'juan'){
-//     return next()
-//   }
-//   return res.send('registrate por fa')
-// });
-
-// Obtengo peliculas
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname,'..','pages','landing.html'))
+  res.sendFile(path('landing.html'))
 });
 
+router.get("/login", (req, res) => {
+  res.sendFile(path('login.html'))
+});
+router.get("/create", (req, res) => {
+  res.sendFile(path('create-user.html'))
+});
+
+router.get("/page", (req, res) => {
+  res.sendFile(path('page.html'))
+});
 module.exports = router;
