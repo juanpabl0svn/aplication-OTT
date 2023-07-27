@@ -1,4 +1,5 @@
 const $ = (el) => document.querySelector(el);
+const $all = (el) => document.querySelectorAll(el);
 
 const URL_BACKEND = "http://localhost:5000";
 
@@ -11,6 +12,14 @@ function getMermershipTime() {
   const next = `${year + 1}/${month}/${day}`;
   return [currentDate, next];
 }
+
+$all(".special-input").forEach((element) => {
+  element.addEventListener("keyup", (e) => {
+    const value = e.target.value;
+    e.target.value = value.toUpperCase();
+  });
+});
+
 $("form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
@@ -29,16 +38,16 @@ $("form").addEventListener("submit", async (e) => {
   console.log(data);
 
   const request = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body : JSON.stringify(data)
-  }
+    body: JSON.stringify(data),
+  };
 
-  const req = await fetch(URL_BACKEND+'/create',request)
+  const req = await fetch(URL_BACKEND + "/create", request);
 
-  const res = await req.json()
+  const res = await req.json();
 
-  console.log(res)
+  console.log(res);
 });
