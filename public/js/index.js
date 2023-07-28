@@ -1,6 +1,5 @@
 const $ = (el) => document.querySelector(el);
 
-
 const URL_BACKEND = "http://localhost:5000";
 
 $(".special-input").addEventListener("keyup", (e) => {
@@ -22,8 +21,12 @@ $("form").addEventListener("submit", async (e) => {
   };
 
   const req = await fetch(URL_BACKEND + "/auth", request);
-  console.log(await req.json());
-  if (req.status !== 200){
-    return alert('algo salio mal')
+  if (req.status !== 200) {
+    return alert("algo salio mal");
   }
+  const res = await req.json();
+
+  document.cookie = `token=${res.token}`;
+
+  location.href = "/page";
 });

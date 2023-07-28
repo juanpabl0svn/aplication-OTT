@@ -99,4 +99,35 @@ router.get(
     res.sendFile(path("page.html"));
   }
 );
+
+router.get(
+  "/page/:id",
+  async function (req, res, next) {
+    const token = req.cookies.token;
+    if (token) {
+      const exist = await isLogedIn(token);
+      if (exist) return next();
+      res.clearCookie("token");
+    }
+    return res.redirect("/");
+  },
+  function (req, res) {
+    const { id } = req.params;
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/movie.css">
+</head>
+<body>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  
+</body>
+</html>`;
+    res.send(html);
+  }
+);
+
 module.exports = router;
