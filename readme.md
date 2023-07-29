@@ -1,1 +1,2 @@
 <a href="https://www.flaticon.es/iconos-gratis/palomitas-de-maiz" title="palomitas de maiz iconos">Palomitas de maiz iconos creados por Freepik - Flaticon</a>
+<a href="https://www.flaticon.es/iconos-gratis/usuario" title="usuario iconos">Usuario iconos creados por Icon Mart - Flaticon</a>
