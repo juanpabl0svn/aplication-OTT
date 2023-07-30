@@ -117,3 +117,9 @@ footer {
   display: grid;
   place-content: center;
 }
+
+.decimal{
+  font-size: 15px;
+  text-decoration: none;
+}
+

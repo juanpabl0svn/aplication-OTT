@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/styles/page.css" />
-    <script defer src="/js/page.js"></script>
+    <script defer src="/js/settings.js"></script>
   </head>
   <body>
     <header>
@@ -15,19 +15,23 @@
         </a>
       </div>
       <div>
-        <img id="user" src="/icons/user.png" alt="user">
+        <img id="user" src="/icons/user.png" alt="user" />
       </div>
     </header>
     <aside id="user-options" class="hidden">
-      <input type="button" value="Ajustes" onclick="location.href='/settings'">
-      <input type="button" value="Log out" onclick="logOut()">
+      <input
+        type="button"
+        value="Ajustes"
+        onclick="location.href='/settings'"
+      />
+      <input type="button" value="Log out" onclick="logOut()" />
     </aside>
     <main>
-      <a href="/page/XAvKUcvnQm0"><img src="/images/proyecto-adam.jpeg" alt="proyecto-adam"></a>
-      <a href="/page/bjAUfPYNZAY"><img src="/images/yo-robot.jpeg" alt=""></a>
-      <a href="/page/yfFkHpTrp9A"><img src="/images/john-wick-4.jpeg" alt=""></a>
-      <a href="/page/KrDKN86pgjI"><img src="/images/codigo-enigma.jpeg" alt=""></a>
-      <a href="/page/rgpaTwlu_TQ"><img src="/images/jumanji-2.jpeg" alt=""></a>
+      <article>
+        <input type="button" value="Cambair metodo de pago" />
+        <input type="button" value="Cambiar contraseña" />
+        <input type="button" value="Borrar cuenta" onclick="deleteAccount()" />
+      </article>
     </main>
     <footer>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse quibusdam,

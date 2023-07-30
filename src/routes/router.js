@@ -14,29 +14,6 @@ async function isLogedIn(token) {
   return true;
 }
 
-// router.use(async (req, res, next) => {
-//   const path = req.path.split("/");
-//   const token = req.cookies.token;
-//   console.log("baby");
-
-//   if (path.includes("page")) {
-//     if (token) {
-//       const exist = await isLogedIn(token);
-//       if (exist) {
-//         next();
-//         return;
-//       }
-//     }
-//     return res.redirect("/");
-//   }
-
-//   if (!token) return next();
-//   const exist = await isLogedIn(token);
-//   if (exist) return res.redirect("/page");
-
-//   return next();
-// });
-
 router.get(
   "/",
   async function (req, res, next) {
@@ -120,14 +97,53 @@ router.get(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/styles/movie.css">
+  <script defer src="/js/page.js"></script>
 </head>
 <body>
+<header>
+      <div class="logo">
+        <a href="/page">
+          <img src="/icons/logo.png" alt="logo vajuli" />
+        </a>
+      </div>
+      <div>
+        <img id="user" src="/icons/user.png" alt="user">
+      </div>
+    </header>
+    <aside id="user-options" class="hidden">
+      <input type="button" value="Ajustes" onclick="location.href='/settings'">
+      <input type="button" value="Log out" onclick="logOut()">
+    </aside>
+  <main>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </main>
+  <footer>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse quibusdam,
+      illum est qui voluptas soluta hic earum incidunt, quas explicabo ex alias
+      quo. Itaque dolore eaque odit minima inventore reiciendis.
+    </footer>
   
 </body>
 </html>`;
     res.send(html);
   }
 );
+
+router.get(
+  "/settings",
+  async function (req, res, next) {
+    const token = req.cookies.token;
+    if (token) {
+      const exist = await isLogedIn(token);
+      if (exist) return next();
+      res.clearCookie("token");
+    }
+    return res.redirect("/");
+  },
+  function (req, res) {
+    res.sendFile(path('settings.html'));
+  }
+);
+
 
 module.exports = router;

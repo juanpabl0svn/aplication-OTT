@@ -3,10 +3,7 @@ const $ = (el) => document.querySelector(el)
 
 $('#user').addEventListener('click',()=>{
   $('aside').classList.toggle('hidden')
-
-
 })
-
 
 
 function logOut() {

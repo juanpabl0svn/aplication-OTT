@@ -1,6 +1,6 @@
 const $ = (el) => document.querySelector(el);
 
-const URL_BACKEND = "http://localhost:5000";
+const URL_BACKEND = 'http://localhost:5000'
 
 $(".special-input").addEventListener("keyup", (e) => {
   const value = e.target.value;

@@ -1,8 +1,156 @@
-*{
+* {
   padding: 0;
   margin: 0;
+  --background: rgb(179, 175, 175);
+  --red: #e20000;
+  --dark-red: #880808;
+  --movie-background: rgb(223, 215, 215);
 }
 
-img{
-  height: 0px;
+body{
+  position: relative;
+  z-index: -10;
+  min-height: 100vh;
+}
+
+
+main {
+  width: 100%;
+  position: relative;
+  min-height: calc(100vh - 80px - 40px - 50px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  place-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  z-index: -4;
+  background: var(--movie-background)
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 80px;
+
+  justify-content: space-between;
+  align-items: center;
+  background: var(--red);
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
+}
+
+header div > img {
+  width: 50px;
+  background: white;
+  border-radius: 50%;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background: var(--red);
+  width: 100%;
+  height: 70px;
+  box-shadow: 0px -17px 16px -7px rgba(0, 0, 0, 0.38);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 20px;
+}
+
+.logo img {
+  height: 60px;
+  cursor: pointer;
+  transform: rotate(0);
+}
+
+.logo a {
+  background: transparent;
+}
+
+.logo a:hover {
+  animation: shake 1200ms;
+  animation-delay: 40ms;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(30deg);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+main a,
+main img {
+  height: 200px;
+  width: 160px;
+  transition: all 600ms;
+}
+main a:hover,
+main img:hover {
+  transform: scale(1.02);
+  transition: all 600ms;
+}
+
+aside {
+  position: absolute;
+  right: 10px;
+  top: 80px;
+  background: var(--red);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 300ms;
+  z-index: -1;
+}
+
+.hidden {
+  top: -10%;
+  transition: all 300ms;
+}
+
+input[type='button'] {
+  cursor: pointer;
+  padding: 7px;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: var(--dark-red);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  transition: all 100ms;
+  width: 100%;
+
+}
+
+
+input[type='button']:active {
+  background-color: var(--red);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  transition: all 100ms;
+}
+
+header div > img:hover{
+  transform: scale(1.1);
 }

@@ -4,15 +4,27 @@
   --background: rgb(179, 175, 175);
   --red: #e20000;
   --dark-red: #880808;
+  --movie-background: rgb(223, 215, 215);
 }
+
+body{
+  position: relative;
+  z-index: -10;
+  min-height: 100vh;
+}
+
 
 main {
   width: 100%;
-  min-height: calc(100vh - 80px - 40px);
+  position: relative;
+  min-height: calc(100vh - 80px - 40px - 50px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   place-items: center;
   gap: 20px;
+  padding-top: 20px;
+  z-index: -4;
+  background: var(--movie-background)
 }
 
 header {
@@ -32,39 +44,19 @@ header div > img {
   border-radius: 50%;
   margin: 0 20px;
   cursor: pointer;
+  transition: all 300ms;
 }
 
-article {
-  background-color: var(--dark-red);
-  color: white;
-
-  position: relative;
-  bottom: -20px;
-  height: 100px;
-  width: 200px;
-  border-radius: 30px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  padding: 20px;
-  transition: all 600ms;
-}
-
-main article:hover {
+header div > img:hover{
   transform: scale(1.1);
-  transition: all 600ms;
 }
 
-main article:nth-child(2n) {
-  top: -70px;
-}
 footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
   background: var(--red);
   width: 100%;
-  height: 40px;
+  height: 70px;
   box-shadow: 0px -17px 16px -7px rgba(0, 0, 0, 0.38);
 }
 
@@ -120,14 +112,14 @@ main img:hover {
 }
 
 aside {
-  position: fixed;
+  position: absolute;
   right: 10px;
   top: 80px;
   background: var(--red);
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 10px;
+  gap: 15px;
+  padding: 15px 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   transition: all 300ms;
@@ -135,6 +127,39 @@ aside {
 }
 
 .hidden {
-  top: 0;
+  top: -10%;
   transition: all 300ms;
+}
+
+
+input[type='button'] {
+  cursor: pointer;
+  padding: 7px;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: var(--dark-red);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  transition: all 100ms;
+  width: 100%;
+
+}
+
+
+input[type='button']:active {
+  background-color: var(--red);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  transition: all 100ms;
+}
+
+
+article{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
 }

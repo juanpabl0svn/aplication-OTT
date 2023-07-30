@@ -110,6 +110,7 @@ article{
 form{
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 
@@ -131,17 +132,19 @@ label{
 
 }
 
-input[type='text']{
+input[type='text'],input[type='password']{
   height: 20px;
   padding: 5px 8px;
   border-radius: 10px;
   background:transparent;
+  color: white;
+
 }
 
-input[type='text']:valid ~ label, input[type='text']:active ~ label,input[type='text']:focus ~ label{
+input[type='text']:valid ~ label, input[type='text']:active ~ label,input[type='text']:focus ~ label,input[type='password']:valid ~ label,input[type='password']:active ~ label,input[type='password']:focus ~ label{
   transition: all 0.2s ease-in-out;
   top: -1px;
-  color:gray;
+  color:rgb(184, 178, 178);
 }
 
 .special-input{
@@ -149,9 +152,8 @@ input[type='text']:valid ~ label, input[type='text']:active ~ label,input[type='
 }
 
 input[type='submit'] {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
+  font-size: 20px;
+  padding: 5px;
   cursor: pointer;
   text-align: center;	
   text-decoration: none;
@@ -161,6 +163,9 @@ input[type='submit'] {
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+  transition: all 100ms;
+  width: 70%;
+
 }
 
 
@@ -168,4 +173,6 @@ input[type='submit']:active {
   background-color: var(--dark-red);
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+  transition: all 100ms;
 }
+

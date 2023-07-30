@@ -3,13 +3,21 @@ const $all = (el) => document.querySelectorAll(el);
 
 const URL_BACKEND = "http://localhost:5000";
 
-function getMermershipTime() {
+function getMermershipTime(type) {
   const fecha = new Date();
   const day = fecha.getDate();
-  const month = fecha.getMonth();
+  const month = fecha.getMonth() + 1;
   const year = fecha.getFullYear();
   const currentDate = `${year}/${month}/${day}`;
-  const next = `${year + 1}/${month}/${day}`;
+  let next;
+  if (type == 1) {
+    next = `${year}/${month + 1}/${day}`;
+  } else if (type == 2) {
+    next = `${year}/${month + 6}/${day}`;
+  }else if(type == 3) {
+    next = `${year + 1}/${month}/${day}`;
+
+  }
   return [currentDate, next];
 }
 
@@ -30,12 +38,11 @@ $("form").addEventListener("submit", async (e) => {
     return alert("Passwords are not the same");
   }
 
-  const [current, next] = getMermershipTime();
+  const [current, next] = getMermershipTime(data.membership);
 
   data["startMerbership"] = new Date(current);
   data["endMerbership"] = new Date(next);
 
-  console.log(data);
 
   const request = {
     method: "POST",
@@ -46,8 +53,11 @@ $("form").addEventListener("submit", async (e) => {
   };
 
   const req = await fetch(URL_BACKEND + "/create", request);
+  if (req.status !== 200) return;
 
   const res = await req.json();
 
-  console.log(res);
+  document.cookie = `token=${res.token}`;
+
+  location.href = "/page";
 });
