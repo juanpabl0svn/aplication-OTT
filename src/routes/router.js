@@ -111,16 +111,31 @@ router.get(
       </div>
     </header>
     <aside id="user-options" class="hidden">
-      <input type="button" value="Ajustes" onclick="location.href='/settings'">
-      <input type="button" value="Log out" onclick="logOut()">
+      <input type="button" value="Inicio" onclick="location.href = '/page'" />
+      <input
+        type="button"
+        value="Ajustes"
+        onclick="location.href='/settings'"
+      />
+      <input type="button" value="Log out" onclick="logOut()" />
     </aside>
   <main>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </main>
   <footer>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse quibusdam,
-      illum est qui voluptas soluta hic earum incidunt, quas explicabo ex alias
-      quo. Itaque dolore eaque odit minima inventore reiciendis.
+      <div>
+        <a
+          href="https://www.flaticon.es/iconos-gratis/palomitas-de-maiz"
+          title="palomitas de maiz iconos"
+          >Palomitas de maiz iconos creados por Freepik - Flaticon</a
+        >
+        <a
+          href="https://www.flaticon.es/iconos-gratis/usuario"
+          title="usuario iconos"
+          >Usuario iconos creados por Icon Mart - Flaticon</a
+        >
+      </div>
+      <div id="copyright">Copyright (c) 2003 Vajuri</div>
     </footer>
   
 </body>
@@ -141,9 +156,8 @@ router.get(
     return res.redirect("/");
   },
   function (req, res) {
-    res.sendFile(path('settings.html'));
+    res.sendFile(path("settings.html"));
   }
 );
-
 
 module.exports = router;

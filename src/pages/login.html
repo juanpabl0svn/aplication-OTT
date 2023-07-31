@@ -19,7 +19,7 @@
     <article>
       <form>
         <section>
-          <input class="special-input" name="username" id="username" type="text" required>
+          <input class="special-input" name="username" id="username" autocomplete="off" type="text" required>
           <label for="username">Usuario</label>
         </section>
         <section>
@@ -27,13 +27,25 @@
           <label for="password">Contraseña</label>
         </section>
         <input type="submit" value="Ingresar">
+        <input type="button" value="Volver" onclick="location.href = '/'" />
+
       </form>
     </article>
   </main>
   <footer>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse quibusdam,
-    illum est qui voluptas soluta hic earum incidunt, quas explicabo ex alias
-    quo. Itaque dolore eaque odit minima inventore reiciendis.
+    <div>
+      <a
+        href="https://www.flaticon.es/iconos-gratis/palomitas-de-maiz"
+        title="palomitas de maiz iconos"
+        >Palomitas de maiz iconos creados por Freepik - Flaticon</a
+      >
+      <a
+        href="https://www.flaticon.es/iconos-gratis/usuario"
+        title="usuario iconos"
+        >Usuario iconos creados por Icon Mart - Flaticon</a
+      >
+    </div>
+    <div id="copyright">Copyright (c) 2003 Vajuri</div>
   </footer>
 </body>
 </html>

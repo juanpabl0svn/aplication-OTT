@@ -39,16 +39,17 @@ article {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
   padding: 20px;
-
 }
 
 footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
   background: var(--red);
   width: 100%;
-  height: 40px;
+  height: 70px;
   box-shadow: 0px -17px 16px -7px rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -64,9 +65,8 @@ footer {
   transform: rotate(0);
 }
 
-.logo a{
+.logo a {
   background: transparent;
-
 }
 
 .logo a:hover {
@@ -92,8 +92,7 @@ footer {
   }
 }
 
-
-main{
+main {
   width: 100%;
   height: calc(100vh - 80px - 40px);
   display: grid;
@@ -101,78 +100,107 @@ main{
   place-content: center;
 }
 
-article{
+article {
   background: var(--dark-red);
   padding: 150px 50px;
   border-radius: 20px;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
-section{
+section {
   position: relative;
   display: flex;
 }
 
-label{
+label {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background: var(--dark-red);
   height: 10px;
   display: flex;
   align-items: center;
   transition: all 0.2s ease-in-out;
-
 }
 
-input[type='text'],input[type='password']{
+input[type="text"],
+input[type="password"] {
   height: 20px;
   padding: 5px 8px;
   border-radius: 10px;
-  background:transparent;
+  background: transparent;
   color: white;
-
 }
 
-input[type='text']:valid ~ label, input[type='text']:active ~ label,input[type='text']:focus ~ label,input[type='password']:valid ~ label,input[type='password']:active ~ label,input[type='password']:focus ~ label{
+input[type="text"]:valid ~ label,
+input[type="text"]:active ~ label,
+input[type="text"]:focus ~ label,
+input[type="password"]:valid ~ label,
+input[type="password"]:active ~ label,
+input[type="password"]:focus ~ label {
   transition: all 0.2s ease-in-out;
   top: -1px;
-  color:rgb(184, 178, 178);
+  color: rgb(184, 178, 178);
 }
 
-.special-input{
+.special-input {
   text-transform: uppercase;
 }
 
-input[type='submit'] {
+
+input[type="submit"],
+input[type="button"] {
   font-size: 20px;
   padding: 5px;
   cursor: pointer;
-  text-align: center;	
-  text-decoration: none;
-  outline: none;
+  text-align: center;
   color: #fff;
   background-color: var(--red);
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
   transition: all 100ms;
   width: 70%;
-
 }
 
-
-input[type='submit']:active {
-  background-color: var(--dark-red);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  transition: all 100ms;
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  box-shadow: 4px 4px 0px black;
+  transform: translate(-4px, -4px);
 }
 
+input[type="submit"]:active,
+input[type="button"]:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  transition: all 80ms;
+}
+
+footer div{
+  display: flex;
+  flex-direction: column;
+}
+
+footer a{
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
+
+#copyright{
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}

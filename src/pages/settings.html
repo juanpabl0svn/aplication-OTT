@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/styles/page.css" />
     <script defer src="/js/settings.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <header>
@@ -19,6 +20,7 @@
       </div>
     </header>
     <aside id="user-options" class="hidden">
+      <input type="button" value="Inicio" onclick="location.href = '/page'" />
       <input
         type="button"
         value="Ajustes"
@@ -34,9 +36,19 @@
       </article>
     </main>
     <footer>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse quibusdam,
-      illum est qui voluptas soluta hic earum incidunt, quas explicabo ex alias
-      quo. Itaque dolore eaque odit minima inventore reiciendis.
+      <div>
+        <a
+          href="https://www.flaticon.es/iconos-gratis/palomitas-de-maiz"
+          title="palomitas de maiz iconos"
+          >Palomitas de maiz iconos creados por Freepik - Flaticon</a
+        >
+        <a
+          href="https://www.flaticon.es/iconos-gratis/usuario"
+          title="usuario iconos"
+          >Usuario iconos creados por Icon Mart - Flaticon</a
+        >
+      </div>
+      <div id="copyright">Copyright (c) 2003 Vajuri</div>
     </footer>
   </body>
 </html>

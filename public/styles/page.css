@@ -7,12 +7,11 @@
   --movie-background: rgb(223, 215, 215);
 }
 
-body{
+body {
   position: relative;
   z-index: -10;
   min-height: 100vh;
 }
-
 
 main {
   width: 100%;
@@ -24,7 +23,7 @@ main {
   gap: 20px;
   padding-top: 20px;
   z-index: -4;
-  background: var(--movie-background)
+  background: var(--movie-background);
 }
 
 header {
@@ -47,7 +46,7 @@ header div > img {
   transition: all 300ms;
 }
 
-header div > img:hover{
+header div > img:hover {
   transform: scale(1.1);
 }
 
@@ -58,6 +57,8 @@ footer {
   width: 100%;
   height: 70px;
   box-shadow: 0px -17px 16px -7px rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -115,7 +116,7 @@ aside {
   position: absolute;
   right: 10px;
   top: 80px;
-  background: var(--red);
+  background: var(--dark-red);
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -127,39 +128,59 @@ aside {
 }
 
 .hidden {
-  top: -10%;
+  top: -15%;
   transition: all 300ms;
 }
 
-
-input[type='button'] {
-  cursor: pointer;
+input[type="button"] {
   padding: 7px;
-  text-align: center;	
-  text-decoration: none;
-  outline: none;
+  cursor: pointer;
+  text-align: center;
   color: #fff;
-  background-color: var(--dark-red);
+  background-color: var(--red);
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
   transition: all 100ms;
   width: 100%;
-
 }
 
-
-input[type='button']:active {
-  background-color: var(--red);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  transition: all 100ms;
+input[type="button"]:hover {
+  box-shadow: 4px 4px 0px black;
+  transform: translate(-4px, -4px);
 }
 
+input[type="button"]:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  transition: all 80ms;
+}
 
-article{
+article {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
 
+
+footer div{
+  display: flex;
+  flex-direction: column;
+}
+
+footer a{
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
+
+#copyright{
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
 }
