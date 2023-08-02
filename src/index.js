@@ -15,4 +15,8 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'pages','error404.html'))
+})
+
 app.listen(PORT, () => console.log(`Runing in http://localhost:${PORT}`));

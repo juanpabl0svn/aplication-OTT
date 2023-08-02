@@ -22,7 +22,11 @@ $("form").addEventListener("submit", async (e) => {
 
   const req = await fetch(URL_BACKEND + "/auth", request);
   if (req.status !== 200) {
-    return alert("algo salio mal");
+    return Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Usuario o contraseña incorrectos!',
+    })
   }
   const res = await req.json();
 

@@ -29,7 +29,7 @@ header div a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5px 10px;
+  margin: 10px;
 }
 
 .logo img {
@@ -201,3 +201,4 @@ footer a:hover{
   transform: translateX(-50%);
   color: white;
 }
+

@@ -14,6 +14,28 @@ async function isLogedIn(token) {
   return true;
 }
 
+// Revisar
+
+// router.get(
+//   "/create/:number",
+//   async function (req, res, next) {
+//     const token = req.cookies.token;
+//     if (token) {
+//       const exist = await isLogedIn(token);
+//       if (exist) return res.redirect("/page");
+//       res.clearCookie("token");
+//     }
+//     return next();
+//   },
+//   function (req, res) {
+//     const { number } = req.params;
+//     if (parseInt(number) <= 3 && parseInt(number) >= 1) {
+//       return res.sendFile(path("create-user.html"));
+//     }
+//     return res.redirect('/create')
+//   }
+// );
+
 router.get(
   "/",
   async function (req, res, next) {
@@ -60,6 +82,7 @@ router.get(
     res.sendFile(path("create-user.html"));
   }
 );
+
 
 router.get(
   "/page",
@@ -121,6 +144,11 @@ router.get(
       <input type="button" value="Log out" onclick="logOut()" />
     </aside>
   <main>
+  <div id="row">
+        <a href="/page">
+          <img src="/icons/row.png" alt="">
+        </a>
+      </div>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </main>
   <footer>
@@ -135,6 +163,7 @@ router.get(
           title="usuario iconos"
           >Usuario iconos creados por Icon Mart - Flaticon</a
         >
+        <a href="https://www.flaticon.es/iconos-gratis/flecha" title="flecha iconos">Flecha iconos creados por rang - Flaticon</a>
       </div>
       <div id="copyright">Copyright (c) 2003 Vajuri</div>
     </footer>

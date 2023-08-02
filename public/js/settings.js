@@ -23,10 +23,9 @@ async function deleteAccount() {
     confirmButtonText: "Borrar",
   });
 
-  if (!result.isCanceled) {
-    return
+  if (result.isDismissed) {
+    return 
   }
-
 
   const cookie = document.cookie;
   const token = cookie.slice(6, cookie.length);
@@ -35,7 +34,13 @@ async function deleteAccount() {
     method: "DELETE",
   });
 
-  if (req.status !== 200) return alert("Nel");
+  if (req.status !== 200){
+    return Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Algo salió mal!",
+    });
+  }
 
   logOut();
 }
