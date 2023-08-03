@@ -194,11 +194,5 @@ footer a:hover{
   text-decoration:underline;
 }
 
-#copyright{
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-}
+
 

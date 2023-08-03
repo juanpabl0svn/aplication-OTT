@@ -149,7 +149,11 @@ router.get(
           <img src="/icons/row.png" alt="">
         </a>
       </div>
+
+
   <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  
   </main>
   <footer>
       <div>
@@ -165,7 +169,6 @@ router.get(
         >
         <a href="https://www.flaticon.es/iconos-gratis/flecha" title="flecha iconos">Flecha iconos creados por rang - Flaticon</a>
       </div>
-      <div id="copyright">Copyright (c) 2003 Vajuri</div>
     </footer>
   
 </body>
