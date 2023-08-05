@@ -1,3 +1,4 @@
-<a href='<%= movie.path %>'>
-    <img src='<%= movie.img %>' alt='<%= movie.name %> '/>
-</a>
+<div onclick="location.href = '/main/<%= movie.path %>'">
+  <img src="<%= movie.img %>" alt="<%= movie.name %> " />
+  <p><%= movie.name %></p>
+</div>

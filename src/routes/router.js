@@ -66,12 +66,12 @@ router.get("/main", middlewareNoAuth, function (req, res) {
     {
       name: "Codigo enigma",
       img: `/images/codigo-enigma.jpeg`,
-      path: "/main/KrDKN86pgjI",
+      path: "KrDKN86pgjI",
     },
     {
       name: "Jumanji",
       img: `/images/jumanji-2.jpeg`,
-      path: "/main/rgpaTwlu_TQ",
+      path: "rgpaTwlu_TQ",
     },
   ];
   res.render("main", {
@@ -100,7 +100,7 @@ router.get(
   function (req, res) {
     res.render("settings", {
       title: "Ajustes",
-      css: "/styles/main.css",
+      css: "/styles/settings.css",
       token: true,
       main: "/main",
       path,

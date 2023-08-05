@@ -25,7 +25,7 @@ main div {
   position: relative;
   overflow: hidden;
 }
-main div > p{
+main div > p {
   position: absolute;
   left: 50%;
   bottom: -20px;
@@ -43,9 +43,8 @@ main img {
   transition: all 600ms;
   border-radius: 10px;
 }
-main div:hover{
+main div:hover {
   filter: brightness(70%);
-  transform: scale(1.04);
 }
 
 main div:hover > p {
@@ -100,8 +99,10 @@ article {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background: var(--green);
+  padding: 20px 30px;
+  border-radius: 20px;
 }
-
 
 #row {
   position: absolute;

@@ -14,14 +14,14 @@ main article:nth-child(2n) {
 }
 
 main article:hover {
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 50px rgb(160, 196, 157);;
   transition: all 200ms;
 }
 
 article {
   cursor: pointer;
-  background-color: var(--dark-red);
-  color: white;
+  background-color: var(--light);
+  color: var(--green);
   font-family: Georgia, "Times New Roman", Times, serif;
   position: relative;
   bottom: -20px;

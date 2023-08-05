@@ -5,9 +5,8 @@ $all("article").forEach((article) => {
   const width = article.clientWidth;
   article.addEventListener("mousemove", (event) => {
     const { layerX, layerY } = event;
-    const yRotate = ((layerX - width / 2) / width) * 20;
-    const xRotate = ((layerY - height / 4) / height) * 20;
-
+    const yRotate = ((layerX - width / 2) / width) * 10;
+    const xRotate = ((layerY - height / 4) / height) * 10;
     const string = `
     scale(1.14)
     perspective(500px)

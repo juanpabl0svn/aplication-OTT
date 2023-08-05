@@ -1,7 +1,4 @@
 article {
-  background-color: var(--dark-red);
-  color: white;
-
   position: relative;
   bottom: -20px;
   height: 100px;
@@ -23,7 +20,7 @@ main {
 }
 
 article {
-  background: var(--dark-red);
+  background: var(--green);
   padding: 120px 40px;
   border-radius: 20px;
 }
@@ -40,6 +37,20 @@ form {
 section {
   position: relative;
   display: flex;
+  color: var(--pastel);
+}
+
+.password-vision {
+  height: 20px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  cursor: pointer;
+}
+
+.hide-image {
+  display: none;
 }
 
 #title {
@@ -54,20 +65,25 @@ label {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: var(--dark-red);
+  background: var(--green);
   height: 10px;
   display: flex;
   align-items: center;
   transition: all 0.2s ease-in-out;
+  padding: 0px 5px;
 }
 
 input[type="text"],
 input[type="password"] {
   height: 20px;
+  width: 150px;
   padding: 5px 8px;
   border-radius: 10px;
   background: transparent;
-  color: white;
+  border: 2px solid white;
+  color: var(--pastel);
+  outline: none;
+  padding-right: 40px;
 }
 
 input[type="text"]:valid ~ label,
@@ -78,7 +94,7 @@ input[type="password"]:active ~ label,
 input[type="password"]:focus ~ label {
   transition: all 0.2s ease-in-out;
   top: -1px;
-  color: rgb(184, 178, 178);
+  color: gray;
 }
 
 .special-input {
@@ -92,16 +108,16 @@ input[type="button"] {
   cursor: pointer;
   text-align: center;
   color: #fff;
-  background-color: var(--red);
   border: none;
   border-radius: 15px;
   transition: all 100ms;
   width: 70%;
+  background: var(--sage);
 }
 
 input[type="submit"]:hover,
 input[type="button"]:hover {
-  box-shadow: 4px 4px 0px black;
+  box-shadow: 4px 4px 0px var(--pastel);
   transform: translate(-4px, -4px);
 }
 
