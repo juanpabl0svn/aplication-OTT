@@ -1,0 +1,31 @@
+<%- include("template/header", {title,css,token,main}) %>
+
+<main>
+  <article>
+    <section class="title" onclick="location.href = '/signin'"">
+        <h1>Plan mensual</h1>
+        <p>Llevalo por:</p>
+        <h2 class="last">$25.<span class="decimal">99</span></h2>
+        <h2 class="now">$19.<span class="decimal">99</span></h2>
+    </section>
+  </article>
+  <article>
+    <section class="title" onclick="location.href = '/signin'" >
+        <h1>Plan semestral</h1>
+        <p>Llevalo por:</p>
+        <h2 class="last">99.<span class="decimal">99</span> $</h2>
+        <h2 class="now">81.<span class="decimal">99</span> $</h2>
+    </section>
+  </article>
+  <article>
+    <section class="title" onclick="location.href= '/signin'">
+        <h1>Plan anual</h1>
+        <p>Llevalo por:</p>
+        <h2 class="last">154.<span class="decimal">99</span>$</h2>
+        <h2 class="now">129.<span class="decimal">99</span>$</h2>
+    </section>
+  </article>
+</main>
+<script defer src="/js/landing.js"></script>
+
+<%- include("template/footer") %>

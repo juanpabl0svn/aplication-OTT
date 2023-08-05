@@ -1,0 +1,26 @@
+<%- include("template/header", {title,css,token,main}) %>
+<aside id="user-options" class="hidden">
+  <input type="button" value="Inicio" onclick="location.href = '/page'" />
+  <input type="button" value="Ajustes" onclick="location.href='/settings'" />
+  <input type="button" value="Log out" onclick="logOut()" />
+</aside>
+<main>
+  <div id="row">
+    <a href="/main">
+      <img src="/icons/row.png" alt="" />
+    </a>
+  </div>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/<%= path %>"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</main>
+
+<script defer src="/js/main.js"></script>
+
+<%- include("template/footer") %>

@@ -1,0 +1,21 @@
+<%- include("template/header", {title,css,token,main}) %>
+<aside id="user-options" class="hidden">
+  <input type="button" value="Inicio" onclick="location.href = '/page'" />
+  <input type="button" value="Ajustes" onclick="location.href='/settings'" />
+  <input type="button" value="Log out" onclick="logOut()" />
+</aside>
+<main>
+  <div id="row">
+    <a href="/main">
+      <img src="/icons/row.png" alt="" />
+    </a>
+  </div>
+  <article>
+    <input type="button" value="Cambair metodo de pago" />
+    <input type="button" value="Cambiar contraseña" />
+    <input type="button" value="Borrar cuenta" onclick="deleteAccount()" />
+  </article>
+</main>
+
+<script src="/js/settings.js"></script>
+<%- include('template/footer') %>

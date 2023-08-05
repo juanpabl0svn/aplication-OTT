@@ -32,5 +32,5 @@ $("form").addEventListener("submit", async (e) => {
 
   document.cookie = `token=${res.token}`;
 
-  location.href = "/page";
+  location.href = "/main";
 });

@@ -14,182 +14,97 @@ async function isLogedIn(token) {
   return true;
 }
 
-// Revisar
-
-// router.get(
-//   "/create/:number",
-//   async function (req, res, next) {
-//     const token = req.cookies.token;
-//     if (token) {
-//       const exist = await isLogedIn(token);
-//       if (exist) return res.redirect("/page");
-//       res.clearCookie("token");
-//     }
-//     return next();
-//   },
-//   function (req, res) {
-//     const { number } = req.params;
-//     if (parseInt(number) <= 3 && parseInt(number) >= 1) {
-//       return res.sendFile(path("create-user.html"));
-//     }
-//     return res.redirect('/create')
-//   }
-// );
-
-router.get(
-  "/",
-  async function (req, res, next) {
-    const token = req.cookies.token;
-    if (token) {
-      const exist = await isLogedIn(token);
-      if (exist) return res.redirect("/page");
-      res.clearCookie("token");
-    }
-    return next();
-  },
-  function (req, res) {
-    res.sendFile(path("landing.html"));
+async function middlewareAuth(req, res, next) {
+  const token = req.cookies.token;
+  if (token) {
+    const exist = await isLogedIn(token);
+    if (exist) return res.redirect("/main");
+    res.clearCookie("token");
   }
-);
+  return next();
+}
 
-router.get(
-  "/login",
-  async function (req, res, next) {
-    const token = req.cookies.token;
-    if (token) {
-      const exist = await isLogedIn(token);
-      if (exist) return res.redirect("/page");
-      res.clearCookie("token");
-    }
-    return next();
-  },
-  function (req, res) {
-    res.sendFile(path("login.html"));
+async function middlewareNoAuth(req, res, next) {
+  const token = req.cookies.token;
+  if (token) {
+    const exist = await isLogedIn(token);
+    if (exist) return next();
+    res.clearCookie("token");
   }
-);
-router.get(
-  "/create",
-  async function (req, res, next) {
-    const token = req.cookies.token;
-    if (token) {
-      const exist = await isLogedIn(token);
-      if (exist) return res.redirect("/page");
-      res.clearCookie("token");
-    }
-    return next();
-  },
-  function (req, res) {
-    res.sendFile(path("create-user.html"));
-  }
-);
+  return res.redirect("/");
+}
 
+router.get("/", middlewareAuth, function (req, res) {
+  res.render("landing", {
+    title: "¡Welcome!",
+    css: "/styles/landing.css",
+    token: false,
+    main: "/",
+  });
+});
 
-router.get(
-  "/page",
-  async function (req, res, next) {
-    const token = req.cookies.token;
-    if (token) {
-      const exist = await isLogedIn(token);
-      if (exist) return next();
-      res.clearCookie("token");
-    }
-    return res.redirect("/");
-  },
-  function (req, res) {
-    res.sendFile(path("page.html"));
-  }
-);
+router.get("/login", middlewareAuth, function (req, res) {
+  res.render("log-in", {
+    title: "Log in!",
+    css: "/styles/log-in.css",
+    token: false,
+    main: "/",
+  });
+});
 
-router.get(
-  "/page/:id",
-  async function (req, res, next) {
-    const token = req.cookies.token;
-    if (token) {
-      const exist = await isLogedIn(token);
-      if (exist) return next();
-      res.clearCookie("token");
-    }
-    return res.redirect("/");
-  },
-  function (req, res) {
-    const { id } = req.params;
-    const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/icons/logo.png" type="image/x-icon">
-  <title>Movie</title>
-  <link rel="stylesheet" href="/styles/movie.css">
-  <script defer src="/js/page.js"></script>
-</head>
-<body>
-<header>
-      <div class="logo">
-        <a href="/page">
-          <img src="/icons/logo.png" alt="logo vajuli" />
-        </a>
-      </div>
-      <div>
-        <img id="user" src="/icons/user.png" alt="user">
-      </div>
-    </header>
-    <aside id="user-options" class="hidden">
-      <input type="button" value="Inicio" onclick="location.href = '/page'" />
-      <input
-        type="button"
-        value="Ajustes"
-        onclick="location.href='/settings'"
-      />
-      <input type="button" value="Log out" onclick="logOut()" />
-    </aside>
-  <main>
-  <div id="row">
-        <a href="/page">
-          <img src="/icons/row.png" alt="">
-        </a>
-      </div>
+router.get("/signin", middlewareAuth, function (req, res) {
+  res.render("sign-in", {
+    title: "Sign in!",
+    css: "/styles/sign-in.css",
+    token: false,
+    main: "/",
+  });
+});
 
+router.get("/main", middlewareNoAuth, function (req, res) {
+  const movies = [
+    {
+      name: "Codigo enigma",
+      img: `/images/codigo-enigma.jpeg`,
+      path: "/main/KrDKN86pgjI",
+    },
+    {
+      name: "Jumanji",
+      img: `/images/jumanji-2.jpeg`,
+      path: "/main/rgpaTwlu_TQ",
+    },
+  ];
+  res.render("main", {
+    title: "Main",
+    css: "/styles/main.css",
+    token: true,
+    main: "/main",
+    movies,
+  });
+});
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-  
-  </main>
-  <footer>
-      <div>
-        <a
-          href="https://www.flaticon.es/iconos-gratis/palomitas-de-maiz"
-          title="palomitas de maiz iconos"
-          >Palomitas de maiz iconos creados por Freepik - Flaticon</a
-        >
-        <a
-          href="https://www.flaticon.es/iconos-gratis/usuario"
-          title="usuario iconos"
-          >Usuario iconos creados por Icon Mart - Flaticon</a
-        >
-        <a href="https://www.flaticon.es/iconos-gratis/flecha" title="flecha iconos">Flecha iconos creados por rang - Flaticon</a>
-      </div>
-    </footer>
-  
-</body>
-</html>`;
-    res.send(html);
-  }
-);
+router.get("/main/:path", middlewareNoAuth, function (req, res) {
+  const { path } = req.params;
+  res.render("watch", {
+    title: "Movie",
+    css: "/styles/main.css",
+    token: true,
+    main: "/main",
+    path,
+  });
+});
 
 router.get(
   "/settings",
-  async function (req, res, next) {
-    const token = req.cookies.token;
-    if (token) {
-      const exist = await isLogedIn(token);
-      if (exist) return next();
-      res.clearCookie("token");
-    }
-    return res.redirect("/");
-  },
+  middlewareNoAuth,
   function (req, res) {
-    res.sendFile(path("settings.html"));
+    res.render("settings", {
+      title: "Ajustes",
+      css: "/styles/main.css",
+      token: true,
+      main: "/main",
+      path,
+    });
   }
 );
 
