@@ -40,8 +40,6 @@ const show = $('#show-password')
 
 const password = $('#password')
 
-console.log(hide)
-
 
 hide.addEventListener("click", async (e) => {
   password.type = 'password'

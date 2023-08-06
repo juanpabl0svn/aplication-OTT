@@ -93,3 +93,21 @@ $("form").addEventListener("submit", async (e) => {
 
   location.href = "/main";
 });
+
+const hide =  $('#hide-password')
+const show = $('#show-password')
+
+const password = $('#password')
+
+
+hide.addEventListener("click", async (e) => {
+  password.type = 'password'
+  e.target.classList.add('hide-image')
+  show.classList.remove('hide-image')
+})
+
+show.addEventListener("click", async (e) => {
+  password.type = 'text'
+  e.target.classList.add('hide-image')
+  hide.classList.remove('hide-image')
+})
