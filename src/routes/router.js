@@ -73,7 +73,39 @@ router.get("/main", middlewareNoAuth, function (req, res) {
       img: `/images/jumanji-2.jpeg`,
       path: "rgpaTwlu_TQ",
     },
+    {
+      name: "Libro de la vida",
+      img: `/images/libro-de-la-vida.jpg`,
+      path: "Z8iBblJ4vH4",
+    },
+    {
+      name: "Ratatouille",
+      img: `/images/ratatouille.jpg`,
+      path: "q2cSseNsKDs",
+    },
+    {
+      name: "El atico",
+      img: `/images/atico.jpg`,
+      path: "8TzZk8Rsjfs",
+    },
+    {
+      name: "Encanto",
+      img: `/images/encanto.jpg`,
+      path: "XIuHkDmZF8I",
+    },
+    {
+      name: "Monter inc",
+      img: `/images/monster-inc.jpg`,
+      path: "IbDF_1zW8zE",
+    },
+    {
+      name: "El planeta de los simios",
+      img: `/images/planeta-simios.jpg`,
+      path: "zbfyycFynrY",
+    },
   ];
+
+
   res.render("main", {
     title: "Main",
     css: "/styles/main.css",
