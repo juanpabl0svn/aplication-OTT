@@ -26,8 +26,12 @@ header div a {
   text-decoration: none;
   padding: 7px;
   background-color: var(--sage);
-  color: white;
   margin: 10px;
+  color: white;
+}
+
+header .logo a{
+  mix-blend-mode: multiply;
 }
 
 header div > img {

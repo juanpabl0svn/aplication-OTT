@@ -94,10 +94,31 @@ $("form").addEventListener("submit", async (e) => {
   location.href = "/main";
 });
 
+
+
 const hide =  $('#hide-password')
 const show = $('#show-password')
 
 const password = $('#password')
+
+const hider =  $('#hide-rpassword')
+const showr = $('#show-rpassword')
+
+const rpassword = $('#rpassword')
+
+
+hider.addEventListener("click", async (e) => {
+  rpassword.type = 'password'
+  e.target.classList.add('hide-image')
+  showr.classList.remove('hide-image')
+})
+
+showr.addEventListener("click", async (e) => {
+  rpassword.type = 'text'
+  e.target.classList.add('hide-image')
+  hider.classList.remove('hide-image')
+})
+
 
 
 hide.addEventListener("click", async (e) => {
